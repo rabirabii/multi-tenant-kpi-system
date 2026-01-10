@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Core.Entities.Global
 {
-    public class MUser
+    public class MUser : BaseAuditableEntity
     {
         [Key]
         public Guid UserId { get; set; }

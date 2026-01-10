@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Global;
+using Infrastructure.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -8,9 +9,9 @@ using static Dapper.SqlMapper;
 
 namespace Infrastructure.Configurations.Global
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<MRole>
+    public class RoleConfiguration : BaseEntityConfiguration<MRole>
     {
-        public void Configure(EntityTypeBuilder<MRole> builder)
+        public override void Configure(EntityTypeBuilder<MRole> builder)
         {
             builder.ToTable("MRole", "public");
 

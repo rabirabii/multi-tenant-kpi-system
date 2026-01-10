@@ -1,13 +1,14 @@
 ﻿using Core.Entities.Global;
+using Infrastructure.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
 namespace Infrastructure.Configurations.Global
 {
-    public class UserConfiguration : IEntityTypeConfiguration<MUser>
+    public class UserConfiguration : BaseEntityConfiguration<MUser>
     {
-        public void Configure(EntityTypeBuilder<MUser> builder)
+        public override void Configure(EntityTypeBuilder<MUser> builder)
         {
             builder.ToTable("MUser", "public");
 
@@ -31,8 +32,6 @@ namespace Infrastructure.Configurations.Global
             builder.Property(e => e.IsActive)
                   .HasDefaultValue(true);
 
-            builder.Property(e => e.UpdatedAt)
-                  .IsRequired(false);
 
         }
     }
