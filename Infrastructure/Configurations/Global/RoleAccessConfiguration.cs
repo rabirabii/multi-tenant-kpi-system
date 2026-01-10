@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Global;
+using Infrastructure.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -8,9 +9,9 @@ using static Dapper.SqlMapper;
 
 namespace Infrastructure.Configurations.Global
 {
-    public class RoleAccessConfiguration : IEntityTypeConfiguration<TrRoleAccess>
+    public class RoleAccessConfiguration : BaseEntityConfiguration<TrRoleAccess>
     {
-        public void Configure(EntityTypeBuilder<TrRoleAccess> builder) {
+        public override void Configure(EntityTypeBuilder<TrRoleAccess> builder) {
             builder.ToTable("TrRoleAccess", "public");
 
             builder.HasKey(e => e.RoleAccessId);

@@ -10,7 +10,6 @@
 	<ItemGroup>
 		<Folder Include="Entities\Global\" />
 		<Folder Include="Entities\Tenants\" />
-		<Folder Include="Interface\" />
 	</ItemGroup>
 
 </Project>

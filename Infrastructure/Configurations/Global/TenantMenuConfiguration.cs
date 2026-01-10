@@ -1,13 +1,14 @@
 ﻿using Core.Entities.Global;
+using Infrastructure.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
 namespace Infrastructure.Configurations.Global
 {
-    public class TenantMenuConfiguration : IEntityTypeConfiguration<TrTenantMenu>
+    public class TenantMenuConfiguration : BaseEntityConfiguration<TrTenantMenu>
     {
-        public void Configure(EntityTypeBuilder<TrTenantMenu> builder)
+        public override void Configure(EntityTypeBuilder<TrTenantMenu> builder)
         {
             builder.ToTable("TrTenantMenu", "public");
 

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Core.Entities.Global
 {
-    public class TrTenantMenu
+    public class TrTenantMenu : BaseAuditableEntity
     {
         [Key]
         public Guid TenantMenuId { get; set; }

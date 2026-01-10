@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Global;
+using Infrastructure.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -8,9 +9,9 @@ using static Dapper.SqlMapper;
 
 namespace Infrastructure.Configurations.Global
 {
-    public class UserTenantConfiguration : IEntityTypeConfiguration<TrUserTenant>
+    public class UserTenantConfiguration : BaseEntityConfiguration<TrUserTenant>
     {
-        public void Configure(EntityTypeBuilder<TrUserTenant> builder)
+        public override void Configure(EntityTypeBuilder<TrUserTenant> builder)
         {
             builder.ToTable("TrUserTenant", "public");
 

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Core.Entities.Global
 {
-    public class TrUserTenant
+    public class TrUserTenant : BaseAuditableEntity
     {
         [Key]
         public Guid UserTenantId { get; set; }
