@@ -1,5 +1,6 @@
-﻿using Core.Entities.Global;
-using Infrastructure.Interceptors;
+﻿using Core.Entities.Base;
+using Core.Entities.Global;
+using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,18 @@ namespace Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                if (typeof(BaseAuditableEntity).IsAssignableFrom(entityType.ClrType))
+                {
+                    var parameter = System.Linq.Expressions.Expression.Parameter(entityType.ClrType, "p");
+                    var deletedProperty = System.Linq.Expressions.Expression.Property(parameter, "IsDeleted");
+                    var condition = System.Linq.Expressions.Expression.Equal(deletedProperty, System.Linq.Expressions.Expression.Constant(false));
+                    var lambda = System.Linq.Expressions.Expression.Lambda(condition, parameter);
+
+                    modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+                }
+            }
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 

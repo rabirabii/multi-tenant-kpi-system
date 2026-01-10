@@ -11,7 +11,7 @@ namespace Core.Entities.Global
         [Key]
         public Guid UserId { get; set; }
         
-        public Guid KeyCloakId { get; set; }
+        public string KeyCloakId { get; set; } = string.Empty;
         public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
 

@@ -7,7 +7,7 @@ using System.Text;
 using System.Security.Claims;
 using Core.Entities.Base;
 
-namespace Infrastructure.Interceptors
+namespace Infrastructure.Persistence
 {
     public class AuditableEntityInterceptor : SaveChangesInterceptor
     {

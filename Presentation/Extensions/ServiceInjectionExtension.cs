@@ -12,6 +12,7 @@ namespace Presentation.Extensions
             builder.Services.AuthInfrastructure(builder.Configuration);
             builder.Services.AddHangfireInfrastructure(builder.Configuration);
             builder.Services.ConfigureSwagger();
+            builder.Services.ConfigureRepositories();
             builder.Services.ConfigureDependecyInjection();
             builder.Services.ConfigureControllersAndFormatters();
         }

@@ -21,5 +21,6 @@ namespace Core.Interface
         IGenericRepository<TrUserTenant> UserTenants { get; }
 
         Task<int> CompleteAsync();
+        Task<IDatabaseTransaction> BeginTransactionAsync();
     }
 }

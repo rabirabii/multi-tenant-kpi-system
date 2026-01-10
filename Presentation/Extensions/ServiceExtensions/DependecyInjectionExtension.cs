@@ -7,7 +7,7 @@
             services.AddHttpContextAccessor();
             services.AddHttpClient();
 
-            // services.AddScoped<IYourService, YourServiceImplementation>();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
         }
     }
 }
